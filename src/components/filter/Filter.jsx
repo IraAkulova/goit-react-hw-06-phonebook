@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useSelector, useDispatch } from 'react-redux';
-import { addFilter } from '../../redux/actions';
+import { addFilter } from '../../redux/filterSlice';
 
 export const Filter = () => {
   const filter = useSelector(state => state.filter);
