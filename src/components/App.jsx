@@ -10,6 +10,7 @@ import css from '../components/App.module.css';
 export const App = () => {
   const contacts = useSelector(state => state.contacts);
   const filter = useSelector(state => state.filter);
+  console.log(contacts);
 
   const formSubmitHandler = data => {
     const contExist = contacts.find(
@@ -24,10 +25,12 @@ export const App = () => {
   const dispatch = useDispatch();
 
   const getVisibleContacts = () => {
+    console.log(contacts);
     const normalizedFilter = filter.toLocaleLowerCase();
-    return contacts.filter(contact => 
-      contact.name.toLowerCase().includes(normalizedFilter)
-    );
+    return contacts.filter(contact => {
+      console.log(contact.name);
+      return contact.name.toLowerCase().includes(normalizedFilter);
+    });
   };
   const visibleContacts = getVisibleContacts();
 
