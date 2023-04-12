@@ -9,7 +9,7 @@ const contactsReducer = (state = ContactsInitialState, action) => {
       return [...state, action.payload];
     }
     case 'contact/deleteContact': {
-      return state.contacts.filter(contact => contact.id !== action.payload.id);
+      return state.filter(contact => contact.id !== action.payload.id);
     }
     default:
       return state;
