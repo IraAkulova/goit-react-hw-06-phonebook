@@ -1,4 +1,3 @@
-import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { ContactForm } from './form/ContactForm';
 import { Filter } from './filter/Filter';
@@ -15,16 +14,13 @@ export const App = () => {
 
   const getVisibleContacts = () => {
     const normalizedFilter = filter.toLocaleLowerCase();
+    console.log(contacts);
     return contacts.filter(contact => contact.name.toLowerCase().includes(normalizedFilter)
     );
   };
   const visibleContacts = getVisibleContacts();
 
   const handleDelete = (id) => dispatch(deleteContact(id));
-
-  useEffect(() => {
-    localStorage.setItem('contacts', JSON.stringify(contacts))
-  }, [contacts])
 
     return (
       <div className={css.container}>
